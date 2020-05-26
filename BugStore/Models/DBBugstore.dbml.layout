@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 11" name="DBBugstore">
+  <DataContextMoniker Name="/DBBugstoreDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bc3d362d-e4ce-442f-9632-53dc3979ae83" absoluteBounds="0.75, 8.75, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_admin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a039c7bf-4e3e-4423-8362-e03462f12651" absoluteBounds="0.765, 9.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e495a73-9704-4f00-a3f7-1928797eb8e7" absoluteBounds="0.75, 1.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_brand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="440886ea-f208-4ad7-b0d4-1d77667ed59b" absoluteBounds="0.765, 2.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9892c6c-0340-4fe9-92bf-997c5a192473" absoluteBounds="0.75, 5.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9ca33ba-7aa8-4c08-8ef3-094368eff797" absoluteBounds="0.765, 6.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5eb04ad0-7178-43a4-a30c-2807700898b5" absoluteBounds="9.5, 1, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_cat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a67af29e-ef09-47a1-83b3-af97a2704594" absoluteBounds="9.515, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dab14c55-d8ac-4d5c-b05e-4e39b48331c8" absoluteBounds="6.75, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91156b7d-4670-418c-83a9-66c80f054aef" absoluteBounds="6.765, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="885e0d90-99e8-4ab1-86be-8d97e8bd59f6" absoluteBounds="3.75, 5, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ddb8b308-82d5-423c-a334-1a871e5aba34" absoluteBounds="3.765, 5.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d89ad060-8e5c-46c4-97a8-5aaaf87a9e05" absoluteBounds="6.5, 5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_orderdetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b3ac56f-e73b-4ba3-b8fa-2aa8f85bfba7" absoluteBounds="6.515, 5.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b510d2f-5d92-47fa-b68b-11ec20cdf9d0" absoluteBounds="3.5, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3538c12f-ec29-4849-9f4f-e022f24e2f69" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 2.17390055338542); (9.5 : 2.17390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBBugstoreDataContext/tbl_customer/tbl_customer_tbl_cat" />
+      <nodes>
+        <classShapeMoniker Id="dab14c55-d8ac-4d5c-b05e-4e39b48331c8" />
+        <classShapeMoniker Id="5eb04ad0-7178-43a4-a30c-2807700898b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 6.07774983723958); (6.5 : 6.07774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBBugstoreDataContext/tbl_order/tbl_order_tbl_orderdetail" />
+      <nodes>
+        <classShapeMoniker Id="885e0d90-99e8-4ab1-86be-8d97e8bd59f6" />
+        <classShapeMoniker Id="d89ad060-8e5c-46c4-97a8-5aaaf87a9e05" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.625); (3.125 : 5.25); (3.125 : 2.36620198567708); (3.5 : 2.36620198567708)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBBugstoreDataContext/tbl_category/tbl_category_tbl_product" />
+      <nodes>
+        <classShapeMoniker Id="a9892c6c-0340-4fe9-92bf-997c5a192473" />
+        <classShapeMoniker Id="4b510d2f-5d92-47fa-b68b-11ec20cdf9d0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.99560099283854); (3.5 : 1.99560099283854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBBugstoreDataContext/tbl_brand/tbl_brand_tbl_product" />
+      <nodes>
+        <classShapeMoniker Id="6e495a73-9704-4f00-a3f7-1928797eb8e7" />
+        <classShapeMoniker Id="4b510d2f-5d92-47fa-b68b-11ec20cdf9d0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
