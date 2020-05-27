@@ -22,18 +22,11 @@ namespace BugStore.Controllers
                          select dp).ToList();
             return ketqua;
         }
-        public ActionResult About()
+        public ActionResult ShowBrand()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var brand = from b in data.tbl_brands select b;
+            return PartialView(brand);
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }

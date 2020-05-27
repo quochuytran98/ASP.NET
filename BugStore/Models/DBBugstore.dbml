@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ASPNETMVC" Class="DBBugstoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=ASPNETMVC;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ASPNETMVCConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-H1GSGD4;Initial Catalog=ASPNETMVC;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ASPNETMVCConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_admin" Member="tbl_admins">
     <Type Name="tbl_admin">
       <Column Name="username_admin" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -17,14 +17,6 @@
       <Association Name="tbl_brand_tbl_product" Member="tbl_products" ThisKey="id_brand" OtherKey="id_brand" Type="tbl_product" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_category" Member="tbl_categories">
-    <Type Name="tbl_category">
-      <Column Name="id_category" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name_category" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="size_category" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="tbl_category_tbl_product" Member="tbl_products" ThisKey="id_category" OtherKey="id_category" Type="tbl_product" />
-    </Type>
-  </Table>
   <Table Name="dbo.tbl_cat" Member="tbl_cats">
     <Type Name="tbl_cat">
       <Column Name="id_cat" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -36,6 +28,22 @@
       <Column Name="quantity_cat" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="image_product" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Association Name="tbl_customer_tbl_cat" Member="tbl_customer" ThisKey="id_customer" OtherKey="id_customer" Type="tbl_customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_category" Member="tbl_categories">
+    <Type Name="tbl_category">
+      <Column Name="id_category" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name_category" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="size_category" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_category_tbl_product" Member="tbl_products" ThisKey="id_category" OtherKey="id_category" Type="tbl_product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_city" Member="tbl_cities">
+    <Type Name="tbl_city">
+      <Column Name="id_city" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name_city" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="type_city" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="tbl_city_tbl_district" Member="tbl_districts" ThisKey="id_city" OtherKey="id_city" Type="tbl_district" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_customer" Member="tbl_customers">
@@ -50,6 +58,15 @@
       <Column Name="district_customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="address_customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_customer_tbl_cat" Member="tbl_cats" ThisKey="id_customer" OtherKey="id_customer" Type="tbl_cat" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_district" Member="tbl_districts">
+    <Type Name="tbl_district">
+      <Column Name="id_district" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name_district" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="type_district" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="id_city" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Association Name="tbl_city_tbl_district" Member="tbl_city" ThisKey="id_city" OtherKey="id_city" Type="tbl_city" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_order" Member="tbl_orders">
@@ -89,8 +106,8 @@
       <Column Name="quantity_product" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="type_product" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="discription_product" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="tbl_category_tbl_product" Member="tbl_category" ThisKey="id_category" OtherKey="id_category" Type="tbl_category" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="tbl_brand_tbl_product" Member="tbl_brand" ThisKey="id_brand" OtherKey="id_brand" Type="tbl_brand" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="tbl_category_tbl_product" Member="tbl_category" ThisKey="id_category" OtherKey="id_category" Type="tbl_category" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
 </Database>

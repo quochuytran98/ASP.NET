@@ -1,0 +1,8 @@
+﻿
+    <ul>
+        @foreach ( var brand in Model)
+        {
+        <li><a href="@Url.Action("Details","BugStore",new { id=brand.id_brand })">@brand.name_brand</a></li>
+        }
+    </ul>
+
