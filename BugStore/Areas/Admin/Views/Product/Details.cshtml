@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+
+    .rows {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -.100rem;
+        margin-left: -.75rem;
+    }
+
+    .scroll {
+        height: 400px;
+        overflow: scroll;
+    }
+
+    h5 {
+        margin-top: 10px;
+        color: black;
+        width: 80%;
+        text-align: justify;
+    }
+
+    h3 {
+        color: red;
+        font-weight: bold;
+    }
+
+    #redd {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<h3>PRODUCT</h3>
+<div class="rows">
+    <div class="col-4">
+        <img src="~/Uploads/@Model.image" alt="Alternate Text" width="450" />
+    </div>
+    <div class="col-8">
+        <h2>@Model.name</h2>
+        <h5>@Model.disc</h5>
+        <h5 id="redd">Brand: @Model.brand</h5>
+        <h3 id="redd">Price: @Model.price</h3>
+
+
+        <div class="scroll">
+            @Html.Action("Size1Product", "Product")
+        </div>
+    </div>
+    
+
+</div>
+
+
+

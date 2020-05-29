@@ -1,0 +1,41 @@
+﻿<div class="card easion-card">
+    <div class="card-header">
+        <div class="easion-card-icon">
+            <i class="fas fa-table"></i>
+        </div>
+        <div class="easion-card-title">Table with hover</div>
+    </div>
+    <div class="card-body ">
+        <table class="table table-hover table-in-card">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Category</th>
+                    
+                    <th scope="col">Price</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var p in Model)
+                {
+                <tr>
+                    <th scope="row">1</th>
+                    <td> <a href="@Url.Action("Details","Product", new { id = p.name })">@p.name</a> </td>
+                    <td><img src="~/Uploads/@p.image" alt="Product image" width="60"/></td>
+                    <td>@p.brand</td>
+                    <td>@p.cat</td>
+                    <td>@p.price</td>
+                </tr>
+                }
+                
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

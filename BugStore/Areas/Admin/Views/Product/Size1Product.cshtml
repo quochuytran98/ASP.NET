@@ -1,0 +1,30 @@
+﻿
+    
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Update</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.id_product</th>
+                        <td>@item.size_product</td>
+                        <td>@item.quantity_product</td>
+                        <td><input type="submit" class="btn btn-primary" name="name" value="UPDATE" /></td>
+
+                    </tr>
+                }
+
+
+
+            </tbody>
+        </table>
+  
+
