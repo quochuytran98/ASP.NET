@@ -42,15 +42,9 @@ namespace BugStore.Models
     partial void Inserttbl_category(tbl_category instance);
     partial void Updatetbl_category(tbl_category instance);
     partial void Deletetbl_category(tbl_category instance);
-    partial void Inserttbl_city(tbl_city instance);
-    partial void Updatetbl_city(tbl_city instance);
-    partial void Deletetbl_city(tbl_city instance);
     partial void Inserttbl_customer(tbl_customer instance);
     partial void Updatetbl_customer(tbl_customer instance);
     partial void Deletetbl_customer(tbl_customer instance);
-    partial void Inserttbl_district(tbl_district instance);
-    partial void Updatetbl_district(tbl_district instance);
-    partial void Deletetbl_district(tbl_district instance);
     partial void Inserttbl_order(tbl_order instance);
     partial void Updatetbl_order(tbl_order instance);
     partial void Deletetbl_order(tbl_order instance);
@@ -63,7 +57,7 @@ namespace BugStore.Models
     #endregion
 		
 		public DBBugstoreDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ASPNETMVCConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ASPNETMVCConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -124,27 +118,11 @@ namespace BugStore.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_city> tbl_cities
-		{
-			get
-			{
-				return this.GetTable<tbl_city>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tbl_customer> tbl_customers
 		{
 			get
 			{
 				return this.GetTable<tbl_customer>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_district> tbl_districts
-		{
-			get
-			{
-				return this.GetTable<tbl_district>();
 			}
 		}
 		
@@ -878,144 +856,6 @@ namespace BugStore.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_city")]
-	public partial class tbl_city : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_city;
-		
-		private string _name_city;
-		
-		private string _type_city;
-		
-		private EntitySet<tbl_district> _tbl_districts;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_cityChanging(string value);
-    partial void Onid_cityChanged();
-    partial void Onname_cityChanging(string value);
-    partial void Onname_cityChanged();
-    partial void Ontype_cityChanging(string value);
-    partial void Ontype_cityChanged();
-    #endregion
-		
-		public tbl_city()
-		{
-			this._tbl_districts = new EntitySet<tbl_district>(new Action<tbl_district>(this.attach_tbl_districts), new Action<tbl_district>(this.detach_tbl_districts));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_city", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_city
-		{
-			get
-			{
-				return this._id_city;
-			}
-			set
-			{
-				if ((this._id_city != value))
-				{
-					this.Onid_cityChanging(value);
-					this.SendPropertyChanging();
-					this._id_city = value;
-					this.SendPropertyChanged("id_city");
-					this.Onid_cityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name_city", DbType="NVarChar(100)")]
-		public string name_city
-		{
-			get
-			{
-				return this._name_city;
-			}
-			set
-			{
-				if ((this._name_city != value))
-				{
-					this.Onname_cityChanging(value);
-					this.SendPropertyChanging();
-					this._name_city = value;
-					this.SendPropertyChanged("name_city");
-					this.Onname_cityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type_city", DbType="NVarChar(30)")]
-		public string type_city
-		{
-			get
-			{
-				return this._type_city;
-			}
-			set
-			{
-				if ((this._type_city != value))
-				{
-					this.Ontype_cityChanging(value);
-					this.SendPropertyChanging();
-					this._type_city = value;
-					this.SendPropertyChanged("type_city");
-					this.Ontype_cityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_city_tbl_district", Storage="_tbl_districts", ThisKey="id_city", OtherKey="id_city")]
-		public EntitySet<tbl_district> tbl_districts
-		{
-			get
-			{
-				return this._tbl_districts;
-			}
-			set
-			{
-				this._tbl_districts.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tbl_districts(tbl_district entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_city = this;
-		}
-		
-		private void detach_tbl_districts(tbl_district entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_city = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_customer")]
 	public partial class tbl_customer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1295,181 +1135,6 @@ namespace BugStore.Models
 		{
 			this.SendPropertyChanging();
 			entity.tbl_customer = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_district")]
-	public partial class tbl_district : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_district;
-		
-		private string _name_district;
-		
-		private string _type_district;
-		
-		private string _id_city;
-		
-		private EntityRef<tbl_city> _tbl_city;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_districtChanging(string value);
-    partial void Onid_districtChanged();
-    partial void Onname_districtChanging(string value);
-    partial void Onname_districtChanged();
-    partial void Ontype_districtChanging(string value);
-    partial void Ontype_districtChanged();
-    partial void Onid_cityChanging(string value);
-    partial void Onid_cityChanged();
-    #endregion
-		
-		public tbl_district()
-		{
-			this._tbl_city = default(EntityRef<tbl_city>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_district", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_district
-		{
-			get
-			{
-				return this._id_district;
-			}
-			set
-			{
-				if ((this._id_district != value))
-				{
-					this.Onid_districtChanging(value);
-					this.SendPropertyChanging();
-					this._id_district = value;
-					this.SendPropertyChanged("id_district");
-					this.Onid_districtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name_district", DbType="NVarChar(100)")]
-		public string name_district
-		{
-			get
-			{
-				return this._name_district;
-			}
-			set
-			{
-				if ((this._name_district != value))
-				{
-					this.Onname_districtChanging(value);
-					this.SendPropertyChanging();
-					this._name_district = value;
-					this.SendPropertyChanged("name_district");
-					this.Onname_districtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type_district", DbType="NVarChar(30)")]
-		public string type_district
-		{
-			get
-			{
-				return this._type_district;
-			}
-			set
-			{
-				if ((this._type_district != value))
-				{
-					this.Ontype_districtChanging(value);
-					this.SendPropertyChanging();
-					this._type_district = value;
-					this.SendPropertyChanged("type_district");
-					this.Ontype_districtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_city", DbType="VarChar(5)")]
-		public string id_city
-		{
-			get
-			{
-				return this._id_city;
-			}
-			set
-			{
-				if ((this._id_city != value))
-				{
-					if (this._tbl_city.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_cityChanging(value);
-					this.SendPropertyChanging();
-					this._id_city = value;
-					this.SendPropertyChanged("id_city");
-					this.Onid_cityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_city_tbl_district", Storage="_tbl_city", ThisKey="id_city", OtherKey="id_city", IsForeignKey=true, DeleteRule="CASCADE")]
-		public tbl_city tbl_city
-		{
-			get
-			{
-				return this._tbl_city.Entity;
-			}
-			set
-			{
-				tbl_city previousValue = this._tbl_city.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_city.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_city.Entity = null;
-						previousValue.tbl_districts.Remove(this);
-					}
-					this._tbl_city.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_districts.Add(this);
-						this._id_city = value.id_city;
-					}
-					else
-					{
-						this._id_city = default(string);
-					}
-					this.SendPropertyChanged("tbl_city");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -2004,9 +1669,9 @@ namespace BugStore.Models
 		
 		private string _discription_product;
 		
-		private EntityRef<tbl_brand> _tbl_brand;
-		
 		private EntityRef<tbl_category> _tbl_category;
+		
+		private EntityRef<tbl_brand> _tbl_brand;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2036,8 +1701,8 @@ namespace BugStore.Models
 		
 		public tbl_product()
 		{
-			this._tbl_brand = default(EntityRef<tbl_brand>);
 			this._tbl_category = default(EntityRef<tbl_category>);
+			this._tbl_brand = default(EntityRef<tbl_brand>);
 			OnCreated();
 		}
 		
@@ -2249,40 +1914,6 @@ namespace BugStore.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_brand_tbl_product", Storage="_tbl_brand", ThisKey="id_brand", OtherKey="id_brand", IsForeignKey=true, DeleteRule="CASCADE")]
-		public tbl_brand tbl_brand
-		{
-			get
-			{
-				return this._tbl_brand.Entity;
-			}
-			set
-			{
-				tbl_brand previousValue = this._tbl_brand.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_brand.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_brand.Entity = null;
-						previousValue.tbl_products.Remove(this);
-					}
-					this._tbl_brand.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_products.Add(this);
-						this._id_brand = value.id_brand;
-					}
-					else
-					{
-						this._id_brand = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_brand");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_category_tbl_product", Storage="_tbl_category", ThisKey="id_category", OtherKey="id_category", IsForeignKey=true, DeleteRule="CASCADE")]
 		public tbl_category tbl_category
 		{
@@ -2313,6 +1944,40 @@ namespace BugStore.Models
 						this._id_category = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("tbl_category");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_brand_tbl_product", Storage="_tbl_brand", ThisKey="id_brand", OtherKey="id_brand", IsForeignKey=true, DeleteRule="CASCADE")]
+		public tbl_brand tbl_brand
+		{
+			get
+			{
+				return this._tbl_brand.Entity;
+			}
+			set
+			{
+				tbl_brand previousValue = this._tbl_brand.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_brand.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_brand.Entity = null;
+						previousValue.tbl_products.Remove(this);
+					}
+					this._tbl_brand.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_products.Add(this);
+						this._id_brand = value.id_brand;
+					}
+					else
+					{
+						this._id_brand = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_brand");
 				}
 			}
 		}
