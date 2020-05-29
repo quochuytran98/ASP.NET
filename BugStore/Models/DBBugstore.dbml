@@ -38,20 +38,6 @@
       <Association Name="tbl_category_tbl_product" Member="tbl_products" ThisKey="id_category" OtherKey="id_category" Type="tbl_product" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_customer" Member="tbl_customers">
-    <Type Name="tbl_customer">
-      <Column Name="id_customer" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="username_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="password_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="name_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="email_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="phone_customer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="city_customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="district_customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="address_customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="tbl_customer_tbl_cat" Member="tbl_cats" ThisKey="id_customer" OtherKey="id_customer" Type="tbl_cat" />
-    </Type>
-  </Table>
   <Table Name="dbo.tbl_order" Member="tbl_orders">
     <Type Name="tbl_order">
       <Column Name="id_order" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -91,6 +77,18 @@
       <Column Name="discription_product" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="tbl_category_tbl_product" Member="tbl_category" ThisKey="id_category" OtherKey="id_category" Type="tbl_category" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="tbl_brand_tbl_product" Member="tbl_brand" ThisKey="id_brand" OtherKey="id_brand" Type="tbl_brand" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_customer" Member="tbl_customers">
+    <Type Name="tbl_customer">
+      <Column Name="id_customer" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="password_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="name_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="email_customer" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="phone_customer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="address_customer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_customer_tbl_cat" Member="tbl_cats" ThisKey="id_customer" OtherKey="id_customer" Type="tbl_cat" />
     </Type>
   </Table>
 </Database>

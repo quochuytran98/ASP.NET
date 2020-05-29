@@ -124,7 +124,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\ViewModel\DetailsViewModel.cs" />
+    <Compile Include="Areas\ViewModel\ProductViewModel.cs" />
     <Compile Include="Controllers\BugStoreController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -282,6 +285,9 @@
     </Content>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Listproduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Size1Product.cshtml" />
     <None Include="Models\DBBugstore.dbml.layout">
       <DependentUpon>DBBugstore.dbml</DependentUpon>
     </None>

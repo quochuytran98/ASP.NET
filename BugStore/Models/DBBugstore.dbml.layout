@@ -26,12 +26,6 @@
         <elementListCompartment Id="54e271fc-7386-4df3-97b5-00022f9e6e1b" absoluteBounds="0.765, 6.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="77a8bedc-2637-42e1-a358-72774fc8cc33" absoluteBounds="6.75, 1, 2, 2.5401025390625005">
-      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_customer" />
-      <nestedChildShapes>
-        <elementListCompartment Id="c6bd5be8-3973-480d-86c4-d3d130405eee" absoluteBounds="6.765, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="5b5e50e0-f93c-49c1-ba02-00c42c981938" absoluteBounds="3.75, 5, 2, 2.3478011067708326">
       <DataClassMoniker Name="/DBBugstoreDataContext/tbl_order" />
       <nestedChildShapes>
@@ -50,14 +44,7 @@
         <elementListCompartment Id="0cfcee65-493f-4c88-b500-d176ca83d889" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.75 : 2.17390055338542); (9.5 : 2.17390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DBBugstoreDataContext/tbl_customer/tbl_customer_tbl_cat" />
-      <nodes>
-        <classShapeMoniker Id="77a8bedc-2637-42e1-a358-72774fc8cc33" />
-        <classShapeMoniker Id="70caf2ee-b59e-4bed-b8e2-788faebc718c" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 6.07774983723958); (6.5 : 6.07774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.75 : 6.07774983723958); (6.5 : 6.07774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBBugstoreDataContext/tbl_order/tbl_order_tbl_orderdetail" />
       <nodes>
         <classShapeMoniker Id="5b5e50e0-f93c-49c1-ba02-00c42c981938" />
@@ -76,6 +63,19 @@
       <nodes>
         <classShapeMoniker Id="cb8ceae7-6094-4c3a-8e5e-537b510b404a" />
         <classShapeMoniker Id="d1d9ce74-3b6a-493e-826e-39ddde0587d7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="868f2fe1-72e1-44b4-bce5-9d71ae5c7e25" absoluteBounds="6.625, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DBBugstoreDataContext/tbl_customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49cfd5f2-fe29-47bc-a2b5-0ef813bfb284" absoluteBounds="6.6400000000000006, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.625 : 1.95274983723958); (9.5 : 1.95274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBBugstoreDataContext/tbl_customer/tbl_customer_tbl_cat" />
+      <nodes>
+        <classShapeMoniker Id="868f2fe1-72e1-44b4-bce5-9d71ae5c7e25" />
+        <classShapeMoniker Id="70caf2ee-b59e-4bed-b8e2-788faebc718c" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -27,6 +27,11 @@ namespace BugStore.Controllers
             var brand = from b in data.tbl_brands select b;
             return PartialView(brand);
         }
+        public ActionResult Shop()
+        {
+            var pro = from p in data.tbl_products select p;
+            return View(pro);
+        }
         
     }
 }
