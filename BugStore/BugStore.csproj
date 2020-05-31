@@ -136,6 +136,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBBugstore.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +318,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\BugStore\Index.cshtml" />
     <Content Include="Views\BugStore\ShowBrand.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

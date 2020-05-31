@@ -119,7 +119,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                @if (Session["user"] != null)
+                                @if (Session["customer"] != null)
                                 {
                                     <a href="@Url.Action("Logout", "User")"><i class="fa fa-user"></i> Logout</a>
                                 }

@@ -19,8 +19,8 @@ namespace BugStore.Controllers
         {
             var ketqua = (from dp in data.tbl_products
                          where dp.type_product == 1
-                         select dp).ToList();
-            return ketqua;
+                         select dp);
+            return ketqua.ToList();
         }
         public ActionResult ShowBrand()
         {

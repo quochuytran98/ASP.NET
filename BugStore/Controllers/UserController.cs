@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using BugStore.Models;
@@ -41,11 +42,12 @@ namespace BugStore.Controllers
             c.password_customer == password);
             if (cus == null)
             {
-                ViewData["Thongbao"] = "Tài Khoản Hoặc Mật Khẩu Không Chính Xác !";
+                //ViewBag.Thongbao = "Tài Khoản Hoặc Mật Khẩu Không Chính Xác !";
             }
             else
             {
-                Session["user"] = cus;
+                Session["customer"] = cus;
+                Session["id_customer"] = cus.id_customer;
                 return RedirectToAction("Index", "BugStore");
             }
             
@@ -59,6 +61,55 @@ namespace BugStore.Controllers
         {
             Session.Clear();//remove session
             return RedirectToAction("Login");
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            
+          
+            return View();
+          
+        }
+        [HttpPost]
+        public ActionResult Register(FormCollection collection,tbl_customer cus) {
+            var Username = collection["username"];
+            var Name = collection["name"];
+            var Password = collection["password"];
+            var RepearPassword = collection["repeatpassword"];
+            var Phone = collection["Phone"];
+            var Email = collection["email"];
+            var Address = collection["address"];
+
+            if (data.tbl_customers.Any(c => c.username_customer ==Username))
+            {
+                ViewBag.Error = "Username tồn tại";
+                
+            }else if (data.tbl_customers.Any(c => c.email_customer == Email))
+            {
+                ViewBag.Error= "Email tồn tại";
+            }
+            else if (data.tbl_customers.Any(c => c.phone_customer == Convert.ToInt32(Phone)))
+            {
+                ViewBag.Error = "Phone tồn tại";
+            }
+            else if (Password!=RepearPassword)
+            {
+                ViewBag.Error = "Password Không trùng khớp";
+            }
+            else
+            {
+                //gán giá trị cho đối tượng tạo mới
+                cus.username_customer = Username;
+                cus.name_customer = Name;
+                cus.password_customer = Password;
+                cus.phone_customer = Convert.ToInt32(Phone);
+                cus.email_customer = Email;
+                cus.address_customer = Address;
+                data.tbl_customers.InsertOnSubmit(cus);
+                data.SubmitChanges();
+                ViewBag.Success = "Đăng Ký Thành Công";
+            }
+            return View();
         }
 
     }
